@@ -1,0 +1,52 @@
+<div class="container col-md-8 bg-info rounded-1 bordered shadow">
+    <div class="row my-4">
+        <div class="col-md-12 text-center">
+            <h2>Sign up</h2>
+        </div>
+
+        <div class="">
+            <div class="col-md-12 mb-3">
+                <label for="fullName">Ingrese su nombre completo</label>
+                <input type="text" id="fullName" class="form form-control" [(ngModel)]="newClient.fullName">
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="fullName">Ingrese su direccion</label>
+                <textarea type="address" rows="2" id="fullName" class="form form-control" style="resize:none" [(ngModel)]="newClient.address"></textarea>
+            </div>
+        
+            <div class="col-md-7 my-2">
+                <div class="input-group mb-3">
+                    <div class="form-group">
+                        <select class="btn btn-primary dropdown-toggle" id="typeDocuments"  [(ngModel)]="newClient.typeDoc">
+                            <option [ngValue]="doc.documentId"  *ngFor="let doc of TypeDocuments">{{doc.documentName}}</option>
+                        </select>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Nro° Documento" [(ngModel)]="newClient.numDoc" aria-label="Text input with checkbox">
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label for="fullName">Ingrese su fecha de nacimiento</label>
+                    <input type="date" id="fullName"  placeholder="yyyy-mm-dd" class="form form-control" [(ngModel)]="newClient.dateBirth">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="fullName">Ingrese su correo electronico</label>
+                <input type="address" id="fullName" class="form form-control" [(ngModel)]="newClient.email">
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label for="fullName">Ingrese su nro celular</label>
+                <input type="text" id="fullName" class="form form-control" [(ngModel)]="newClient.phoneNumber">
+            </div>
+            
+            <div class="col-md-12 mb-3">
+                <label for="fullName">Ingrese su contraseña</label>
+                <input type="password" id="fullName" class="form form-control" [(ngModel)]="newClient.password">
+            </div>
+            
+        </div>
+        
+        <button class="btn btn-success" (click)="createNewClient()">enviar</button>
+    </div>
+</div>

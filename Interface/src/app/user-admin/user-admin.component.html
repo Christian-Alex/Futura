@@ -1,0 +1,117 @@
+<div class="container col-md-8 bg-info rounded-1 bordered shadow">
+    <div class="row my-4">
+        <div class="col-md-12 my-3">
+            <div class="rounded bordered">
+                <div class="row">
+                    <h3>Acciones</h3>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Tabla de Categorias
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Categorias</th>
+                                                <th scope="col">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td>
+                                                    <input class="form form-control" type="text" placeholder="Nueva categoria" [(ngModel)]="newCategorie.categorieName">
+                                                </td>
+                                                <td> 
+                                                    <button class="btn btn-success" (click)="createCategorie()">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr *ngFor="let categorie of Categories">
+                                                <th scope="row">{{ categorie.categorieId }}</th>
+                                                <td>
+                                                    <input class="form form-control me-1" id="{{categorie.categorieId}}" type="text" value="{{categorie.categorieName}}" readonly>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger me-1" (click)="deleteCategorie(categorie.categorieId)">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-warning mee-1">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                    
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Tabla de Documentos
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Documentos</th>
+                                                <th scope="col">Longitud</th>
+                                                <th scope="col">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td>
+                                                    <input class="form form-control" type="text" placeholder="Nuevo documento" [(ngModel)]="newDocument.documentName" required>
+                                                </td>
+                                                <td>
+                                                    <input class="form form-control" type="text" placeholder="Longitud" [(ngModel)]="newDocument.documentLength" required>
+                                                </td>
+                                                <td> 
+                                                    <button class="btn btn-success" (click)="createDocument()">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr *ngFor="let document of TypeDocuments">
+                                                <th scope="row">{{ document.documentId }}</th>
+                                                <td>
+                                                    <input class="form form-control me-1" type="text" value="{{document.documentName}}" readonly>
+                                                </td>
+                                                <td>
+                                                    <input class="form form-control me-1" type="number" value="{{document.documentLength}}" readonly>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger me-1" (click)="deleteDocument(document.documentId)">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button class="btn btn-warning mee-1">
+                                                        <i class="fa fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
